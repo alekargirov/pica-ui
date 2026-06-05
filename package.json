@@ -9,6 +9,8 @@
       "svelte": "./src/index.ts",
       "default": "./src/index.ts"
     },
+    "./base": "./src/base.css",
+    "./all": "./src/all.css",
     "./themes/*": "./src/themes/*.css"
   },
   "peerDependencies": {

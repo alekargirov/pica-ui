@@ -1,0 +1,8 @@
+/* pica-ui — base + every theme. Import this, then set data-theme. */
+@import './base.css';
+@import './themes/graphite.css';
+@import './themes/hearth.css';
+@import './themes/signal.css';
+@import './themes/forge.css';
+@import './themes/petal.css';
+@import './themes/void.css';

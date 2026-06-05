@@ -1,0 +1,100 @@
+<script lang="ts">
+  import { onMount } from 'svelte'
+  import { Palette, Check, Sun, Moon, ChevronDown } from '@lucide/svelte'
+  import { THEMES, getTheme, getMode, applyTheme, type ThemeId, type Mode } from '../theme.js'
+
+  interface Props {
+    /** Render compact (icon only) — useful in tight sidebars. */
+    compact?: boolean
+    class?: string
+  }
+  let { compact = false, class: className = '' }: Props = $props()
+
+  let theme = $state<ThemeId>('graphite')
+  let mode = $state<Mode>('dark')
+  let open = $state(false)
+  let root = $state<HTMLDivElement | null>(null)
+
+  onMount(() => {
+    theme = getTheme()
+    mode = getMode()
+    applyTheme(theme, mode)
+    const onDoc = (e: MouseEvent) => {
+      if (root && !root.contains(e.target as Node)) open = false
+    }
+    document.addEventListener('click', onDoc)
+    return () => document.removeEventListener('click', onDoc)
+  })
+
+  function pickTheme(id: ThemeId) {
+    theme = id
+    applyTheme(theme, mode)
+    open = false
+  }
+  function toggleMode() {
+    mode = mode === 'dark' ? 'light' : 'dark'
+    applyTheme(theme, mode)
+  }
+
+  const currentLabel = $derived(THEMES.find((t) => t.id === theme)?.label ?? 'Theme')
+</script>
+
+<div class="relative {className}" bind:this={root}>
+  <div class="flex items-center gap-1">
+    <button
+      type="button"
+      onclick={() => (open = !open)}
+      class="flex items-center gap-2 rounded-[6px] px-2.5 py-1.5 text-[13px] font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+      aria-haspopup="listbox"
+      aria-expanded={open}
+    >
+      <Palette class="h-4 w-4 shrink-0" />
+      {#if !compact}<span>{currentLabel}</span>{/if}
+      <ChevronDown class="h-3.5 w-3.5 opacity-60" />
+    </button>
+    <button
+      type="button"
+      onclick={toggleMode}
+      class="flex items-center justify-center h-[30px] w-[30px] rounded-[6px] text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+      aria-label={mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      {#if mode === 'dark'}<Sun class="h-4 w-4" />{:else}<Moon class="h-4 w-4" />{/if}
+    </button>
+  </div>
+
+  {#if open}
+    <ul
+      class="absolute z-50 bottom-full mb-2 left-0 min-w-[160px] rounded-[8px] border border-border bg-popover p-1 shadow-lg"
+      role="listbox"
+    >
+      {#each THEMES as t (t.id)}
+        <li>
+          <button
+            type="button"
+            onclick={() => pickTheme(t.id)}
+            class="w-full flex items-center justify-between gap-2 rounded-[4px] px-2.5 py-1.5 text-[13px] text-left transition-colors
+                   {theme === t.id ? 'bg-secondary text-foreground font-medium' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
+            role="option"
+            aria-selected={theme === t.id}
+          >
+            <span class="flex items-center gap-2">
+              <span class="h-3.5 w-3.5 rounded-full border border-border" data-swatch={t.id}></span>
+              {t.label}
+            </span>
+            {#if theme === t.id}<Check class="h-3.5 w-3.5 text-primary" />{/if}
+          </button>
+        </li>
+      {/each}
+    </ul>
+  {/if}
+</div>
+
+<style>
+  /* Live preview swatches — primary colour of each theme (dark-mode values) */
+  [data-swatch='graphite'] { background: hsl(43 96% 56%); }
+  [data-swatch='hearth']   { background: hsl(17 78% 62%); }
+  [data-swatch='signal']   { background: hsl(182 72% 48%); }
+  [data-swatch='forge']    { background: hsl(22 96% 58%); }
+  [data-swatch='petal']    { background: hsl(340 62% 66%); }
+  [data-swatch='void']     { background: hsl(265 100% 68%); }
+</style>
