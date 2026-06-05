@@ -1,0 +1,120 @@
+/* ============================================================================
+   @pica/ui — Petal design system tokens
+   Import this in your app.css: @import '@pica/ui/themes/petal'
+   ============================================================================
+   Petal · Editorial, soft, botanical. Dusty rose primary on blush white.
+   Lora serif. Generous radius — everything is rounded and approachable.
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@layer base {
+  :root {
+    /* Petal · Light */
+    --background: 340 38% 97%;
+    --foreground: 340 22% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 22% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 22% 12%;
+    --primary: 340 52% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 24% 93%;
+    --secondary-foreground: 340 22% 12%;
+    --muted: 340 24% 93%;
+    --muted-foreground: 340 10% 46%;
+    --accent: 340 24% 90%;
+    --accent-foreground: 340 22% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 340 18% 88%;
+    --input: 340 18% 88%;
+    --ring: 340 52% 48%;
+  }
+
+  .dark {
+    /* Petal · Dark */
+    --background: 340 18% 8%;
+    --foreground: 340 22% 92%;
+    --card: 340 14% 11%;
+    --card-foreground: 340 22% 92%;
+    --popover: 340 14% 13%;
+    --popover-foreground: 340 22% 92%;
+    --primary: 340 62% 66%;
+    --primary-foreground: 340 40% 8%;
+    --secondary: 340 12% 15%;
+    --secondary-foreground: 340 22% 92%;
+    --muted: 340 12% 15%;
+    --muted-foreground: 340 8% 56%;
+    --accent: 340 12% 18%;
+    --accent-foreground: 340 22% 92%;
+    --destructive: 0 91% 71%;
+    --destructive-foreground: 0 46% 7%;
+    --border: 340 10% 20%;
+    --input: 340 12% 15%;
+    --ring: 340 62% 66%;
+  }
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --font-sans: 'Lora', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  code, pre, .mono {
+    font-family: var(--font-mono);
+  }
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+/* Active nav left-bar indicator */
+.pica-nav-active {
+  position: relative;
+}
+.pica-nav-active::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: hsl(var(--primary));
+  border-radius: 99px;
+}
