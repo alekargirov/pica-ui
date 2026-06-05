@@ -6,9 +6,11 @@
   interface Props {
     /** Render compact (icon only) — useful in tight sidebars. */
     compact?: boolean
+    /** Which way the menu opens. 'up' suits a bottom sidebar; 'down' a top nav. */
+    placement?: 'up' | 'down'
     class?: string
   }
-  let { compact = false, class: className = '' }: Props = $props()
+  let { compact = false, placement = 'up', class: className = '' }: Props = $props()
 
   let theme = $state<ThemeId>('graphite')
   let mode = $state<Mode>('dark')
@@ -64,7 +66,7 @@
 
   {#if open}
     <ul
-      class="absolute z-50 bottom-full mb-2 left-0 min-w-[160px] rounded-[8px] border border-border bg-popover p-1 shadow-lg"
+      class="absolute z-50 left-0 min-w-[160px] rounded-[8px] border border-border bg-popover p-1 shadow-lg {placement === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'}"
       role="listbox"
     >
       {#each THEMES as t (t.id)}
