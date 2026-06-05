@@ -1,0 +1,116 @@
+/* ============================================================================
+   @pica/ui — Graphite design system tokens
+   Import this in your app.css: @import '@pica/ui/css'
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Graphite · Light */
+    --background: 218 22% 97%;
+    --foreground: 225 15% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 15% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 15% 9%;
+    --primary: 36 96% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 20% 95%;
+    --secondary-foreground: 225 15% 9%;
+    --muted: 215 20% 95%;
+    --muted-foreground: 220 8% 40%;
+    --accent: 215 20% 95%;
+    --accent-foreground: 225 15% 9%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 218 13% 90%;
+    --input: 218 13% 90%;
+    --ring: 36 96% 40%;
+  }
+
+  .dark {
+    /* Graphite · Dark */
+    --background: 228 16% 7%;
+    --foreground: 222 14% 91%;
+    --card: 228 14% 10%;
+    --card-foreground: 222 14% 91%;
+    --popover: 228 15% 12%;
+    --popover-foreground: 222 14% 91%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 39 56% 6%;
+    --secondary: 228 15% 12%;
+    --secondary-foreground: 222 14% 91%;
+    --muted: 228 15% 12%;
+    --muted-foreground: 223 9% 58%;
+    --accent: 228 15% 12%;
+    --accent-foreground: 222 14% 91%;
+    --destructive: 0 91% 71%;
+    --destructive-foreground: 0 46% 7%;
+    --border: 225 12% 16%;
+    --input: 228 15% 12%;
+    --ring: 43 96% 56%;
+  }
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-lg: 10px;
+  --radius-md: 6px;
+  --radius-sm: 4px;
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'ss02';
+  }
+  body {
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  code, pre, .mono {
+    font-family: var(--font-mono);
+  }
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+/* Active nav left-bar indicator */
+.pica-nav-active {
+  position: relative;
+}
+.pica-nav-active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: hsl(var(--primary));
+  border-radius: 0 3px 3px 0;
+}

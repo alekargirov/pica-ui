@@ -1,0 +1,23 @@
+{
+  "name": "ui-graphite",
+  "version": "0.1.0",
+  "description": "Graphite design system — shared UI for pica apps",
+  "type": "module",
+  "svelte": "./src/index.ts",
+  "exports": {
+    ".": {
+      "svelte": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./css": "./src/app.css"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0",
+    "@lucide/svelte": ">=0.400.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5"
+  }
+}
