@@ -1,7 +1,7 @@
 {
-  "name": "ui-graphite",
+  "name": "pica-ui",
   "version": "0.1.0",
-  "description": "Graphite design system — shared UI for pica apps",
+  "description": "pica design system — components and themes for pica apps",
   "type": "module",
   "svelte": "./src/index.ts",
   "exports": {
@@ -9,7 +9,7 @@
       "svelte": "./src/index.ts",
       "default": "./src/index.ts"
     },
-    "./css": "./src/app.css"
+    "./themes/*": "./src/themes/*.css"
   },
   "peerDependencies": {
     "svelte": "^5.0.0",
