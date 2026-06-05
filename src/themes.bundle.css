@@ -1,0 +1,316 @@
+/* pica-ui — themes.bundle.css : all 6 themes as plain CSS [data-theme] blocks.
+   For non-bundled apps (no Tailwind). Set <html data-theme="x"> + class="dark".
+   Generated from themes/*.css — do not edit by hand. */
+
+/* pica-ui theme: graphite — scoped to [data-theme="graphite"] */
+
+[data-theme="graphite"] {
+  --background: 218 22% 97%;
+  --foreground: 225 15% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 225 15% 9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 225 15% 9%;
+  --primary: 36 96% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 20% 95%;
+  --secondary-foreground: 225 15% 9%;
+  --muted: 215 20% 95%;
+  --muted-foreground: 220 8% 40%;
+  --accent: 215 20% 95%;
+  --accent-foreground: 225 15% 9%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 218 13% 90%;
+  --input: 218 13% 90%;
+  --ring: 36 96% 40%;
+  /* shape + type tokens (consumed by base.css @theme indirection) */
+  --radius-lg-t: 10px;
+  --radius-md-t: 6px;
+  --radius-sm-t: 4px;
+  --font-sans-t: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono-t: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+[data-theme="graphite"].dark {
+  --background: 228 16% 7%;
+  --foreground: 222 14% 91%;
+  --card: 228 14% 10%;
+  --card-foreground: 222 14% 91%;
+  --popover: 228 15% 12%;
+  --popover-foreground: 222 14% 91%;
+  --primary: 43 96% 56%;
+  --primary-foreground: 39 56% 6%;
+  --secondary: 228 15% 12%;
+  --secondary-foreground: 222 14% 91%;
+  --muted: 228 15% 12%;
+  --muted-foreground: 223 9% 58%;
+  --accent: 228 15% 12%;
+  --accent-foreground: 222 14% 91%;
+  --destructive: 0 91% 71%;
+  --destructive-foreground: 0 46% 7%;
+  --border: 225 12% 16%;
+  --input: 228 15% 12%;
+  --ring: 43 96% 56%;
+}
+
+/* pica-ui theme: hearth — scoped to [data-theme="hearth"] */
+
+[data-theme="hearth"] {
+  --background: 30 40% 97%;
+  --foreground: 20 30% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 30% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 30% 10%;
+  --primary: 17 68% 46%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 28 22% 93%;
+  --secondary-foreground: 20 30% 10%;
+  --muted: 28 22% 93%;
+  --muted-foreground: 20 12% 44%;
+  --accent: 28 22% 93%;
+  --accent-foreground: 20 30% 10%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 26 16% 88%;
+  --input: 26 16% 88%;
+  --ring: 17 68% 46%;
+  /* shape + type tokens (consumed by base.css @theme indirection) */
+  --radius-lg-t: 12px;
+  --radius-md-t: 8px;
+  --radius-sm-t: 6px;
+  --font-sans-t: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono-t: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+[data-theme="hearth"].dark {
+  --background: 20 20% 8%;
+  --foreground: 28 18% 91%;
+  --card: 20 16% 11%;
+  --card-foreground: 28 18% 91%;
+  --popover: 20 16% 13%;
+  --popover-foreground: 28 18% 91%;
+  --primary: 17 78% 62%;
+  --primary-foreground: 17 50% 8%;
+  --secondary: 20 14% 15%;
+  --secondary-foreground: 28 18% 91%;
+  --muted: 20 14% 15%;
+  --muted-foreground: 22 10% 56%;
+  --accent: 20 14% 17%;
+  --accent-foreground: 28 18% 91%;
+  --destructive: 0 91% 71%;
+  --destructive-foreground: 0 46% 7%;
+  --border: 20 12% 19%;
+  --input: 20 14% 15%;
+  --ring: 17 78% 62%;
+}
+
+/* pica-ui theme: signal — scoped to [data-theme="signal"] */
+
+[data-theme="signal"] {
+  --background: 210 20% 98%;
+  --foreground: 215 28% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 28% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 28% 8%;
+  --primary: 192 88% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 16% 94%;
+  --secondary-foreground: 215 28% 8%;
+  --muted: 210 16% 94%;
+  --muted-foreground: 215 10% 44%;
+  --accent: 210 16% 94%;
+  --accent-foreground: 215 28% 8%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 14% 88%;
+  --input: 210 14% 88%;
+  --ring: 192 88% 36%;
+  /* shape + type tokens (consumed by base.css @theme indirection) */
+  --radius-lg-t: 6px;
+  --radius-md-t: 4px;
+  --radius-sm-t: 2px;
+  --font-sans-t: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono-t: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+[data-theme="signal"].dark {
+  --background: 222 22% 6%;
+  --foreground: 210 18% 93%;
+  --card: 220 20% 9%;
+  --card-foreground: 210 18% 93%;
+  --popover: 220 20% 11%;
+  --popover-foreground: 210 18% 93%;
+  --primary: 182 72% 48%;
+  --primary-foreground: 192 80% 6%;
+  --secondary: 220 18% 13%;
+  --secondary-foreground: 210 18% 93%;
+  --muted: 220 18% 13%;
+  --muted-foreground: 215 10% 56%;
+  --accent: 220 18% 15%;
+  --accent-foreground: 210 18% 93%;
+  --destructive: 0 91% 71%;
+  --destructive-foreground: 0 46% 7%;
+  --border: 218 16% 17%;
+  --input: 220 18% 13%;
+  --ring: 182 72% 48%;
+}
+
+/* pica-ui theme: forge — scoped to [data-theme="forge"] */
+
+[data-theme="forge"] {
+  --background: 210 12% 95%;
+  --foreground: 215 22% 10%;
+  --card: 210 10% 99%;
+  --card-foreground: 215 22% 10%;
+  --popover: 210 10% 99%;
+  --popover-foreground: 215 22% 10%;
+  --primary: 22 92% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 10% 90%;
+  --secondary-foreground: 215 22% 10%;
+  --muted: 210 10% 90%;
+  --muted-foreground: 215 8% 42%;
+  --accent: 210 10% 86%;
+  --accent-foreground: 215 22% 10%;
+  --destructive: 0 80% 46%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 10% 84%;
+  --input: 210 10% 84%;
+  --ring: 22 92% 50%;
+  /* shape + type tokens (consumed by base.css @theme indirection) */
+  --radius-lg-t: 3px;
+  --radius-md-t: 2px;
+  --radius-sm-t: 1px;
+  --font-sans-t: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+  --font-mono-t: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+[data-theme="forge"].dark {
+  --background: 215 18% 9%;
+  --foreground: 210 14% 90%;
+  --card: 214 16% 12%;
+  --card-foreground: 210 14% 90%;
+  --popover: 214 16% 14%;
+  --popover-foreground: 210 14% 90%;
+  --primary: 22 96% 58%;
+  --primary-foreground: 22 60% 6%;
+  --secondary: 214 14% 16%;
+  --secondary-foreground: 210 14% 90%;
+  --muted: 214 14% 16%;
+  --muted-foreground: 214 8% 54%;
+  --accent: 214 14% 19%;
+  --accent-foreground: 210 14% 90%;
+  --destructive: 0 91% 71%;
+  --destructive-foreground: 0 46% 7%;
+  --border: 214 12% 20%;
+  --input: 214 14% 16%;
+  --ring: 22 96% 58%;
+}
+
+/* pica-ui theme: petal — scoped to [data-theme="petal"] */
+
+[data-theme="petal"] {
+  --background: 340 38% 97%;
+  --foreground: 340 22% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 340 22% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 340 22% 12%;
+  --primary: 340 52% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 24% 93%;
+  --secondary-foreground: 340 22% 12%;
+  --muted: 340 24% 93%;
+  --muted-foreground: 340 10% 46%;
+  --accent: 340 24% 90%;
+  --accent-foreground: 340 22% 12%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 340 18% 88%;
+  --input: 340 18% 88%;
+  --ring: 340 52% 48%;
+  /* shape + type tokens (consumed by base.css @theme indirection) */
+  --radius-lg-t: 20px;
+  --radius-md-t: 14px;
+  --radius-sm-t: 8px;
+  --font-sans-t: 'Lora', ui-serif, Georgia, serif;
+  --font-mono-t: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+}
+
+[data-theme="petal"].dark {
+  --background: 340 18% 8%;
+  --foreground: 340 22% 92%;
+  --card: 340 14% 11%;
+  --card-foreground: 340 22% 92%;
+  --popover: 340 14% 13%;
+  --popover-foreground: 340 22% 92%;
+  --primary: 340 62% 66%;
+  --primary-foreground: 340 40% 8%;
+  --secondary: 340 12% 15%;
+  --secondary-foreground: 340 22% 92%;
+  --muted: 340 12% 15%;
+  --muted-foreground: 340 8% 56%;
+  --accent: 340 12% 18%;
+  --accent-foreground: 340 22% 92%;
+  --destructive: 0 91% 71%;
+  --destructive-foreground: 0 46% 7%;
+  --border: 340 10% 20%;
+  --input: 340 12% 15%;
+  --ring: 340 62% 66%;
+}
+
+/* pica-ui theme: void — scoped to [data-theme="void"] */
+
+[data-theme="void"] {
+  --background: 270 14% 96%;
+  --foreground: 270 20% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 270 20% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 270 20% 8%;
+  --primary: 265 88% 46%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 12% 92%;
+  --secondary-foreground: 270 20% 8%;
+  --muted: 270 12% 92%;
+  --muted-foreground: 270 8% 42%;
+  --accent: 270 12% 88%;
+  --accent-foreground: 270 20% 8%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 270 10% 86%;
+  --input: 270 10% 86%;
+  --ring: 265 88% 46%;
+  /* shape + type tokens (consumed by base.css @theme indirection) */
+  --radius-lg-t: 0px;
+  --radius-md-t: 0px;
+  --radius-sm-t: 0px;
+  --font-sans-t: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --font-mono-t: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+}
+
+[data-theme="void"].dark {
+  --background: 0 0% 4%;
+  --foreground: 270 14% 93%;
+  --card: 270 10% 7%;
+  --card-foreground: 270 14% 93%;
+  --popover: 270 10% 9%;
+  --popover-foreground: 270 14% 93%;
+  --primary: 265 100% 68%;
+  --primary-foreground: 265 60% 6%;
+  --secondary: 270 10% 10%;
+  --secondary-foreground: 270 14% 93%;
+  --muted: 270 10% 10%;
+  --muted-foreground: 270 8% 52%;
+  --accent: 270 10% 13%;
+  --accent-foreground: 270 14% 93%;
+  --destructive: 0 91% 71%;
+  --destructive-foreground: 0 46% 7%;
+  --border: 270 8% 14%;
+  --input: 270 10% 10%;
+  --ring: 265 100% 68%;
+}
+

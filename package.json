@@ -11,6 +11,8 @@
     },
     "./base": "./src/base.css",
     "./all": "./src/all.css",
+    "./themes.bundle.css": "./src/themes.bundle.css",
+    "./switcher.js": "./src/switcher.js",
     "./themes/*": "./src/themes/*.css"
   },
   "peerDependencies": {
