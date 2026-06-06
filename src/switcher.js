@@ -61,13 +61,14 @@
       'border:1px solid hsl(var(--border));'
     function label() {
       var t = THEMES.filter(function (x) { return x[0] === theme })[0]
-      return '<span style="width:11px;height:11px;border-radius:50%;display:inline-block;background:hsl(' +
-        t[2] + ')"></span> ' + t[1] + ' ▾'
+      // Compact icon style (swatch + chevron), matching the SvelteKit switcher.
+      return '<span style="width:12px;height:12px;border-radius:50%;display:inline-block;background:hsl(' +
+        t[2] + ')"></span> ▾'
     }
     btn.innerHTML = label()
     var menu = document.createElement('div')
     menu.style.cssText =
-      'position:absolute;bottom:calc(100% + 6px);right:0;min-width:150px;display:none;' +
+      'position:absolute;top:calc(100% + 6px);right:0;min-width:150px;display:none;' +
       'background:hsl(var(--popover));border:1px solid hsl(var(--border));' +
       'border-radius:8px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.4);'
     THEMES.forEach(function (t) {
