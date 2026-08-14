@@ -22,16 +22,39 @@ export const MODE_KEY = 'pica:mode'
 export const DEFAULT_THEME: ThemeId = 'graphite'
 export const DEFAULT_MODE: Mode = 'dark'
 
+// What the SERVER already decided, if anything did. An SSR app stamps the theme
+// onto <html> before the page is sent; without consulting that, the client would
+// find an empty localStorage, fall back to the package default, and overwrite a
+// correct server render on mount — reintroducing exactly the flash the SSR path
+// exists to remove.
+//
+// Precedence: the visitor's stored choice, then whatever the server rendered,
+// then the default.
+function rendered(): { theme: string | null; dark: boolean } {
+  if (typeof document === 'undefined') return { theme: null, dark: false }
+  const el = document.documentElement
+  return { theme: el.getAttribute('data-theme'), dark: el.classList.contains('dark') }
+}
+
 export function getTheme(): ThemeId {
-  if (typeof localStorage === 'undefined') return DEFAULT_THEME
-  const t = localStorage.getItem(THEME_KEY)
-  return (THEMES.some((x) => x.id === t) ? t : DEFAULT_THEME) as ThemeId
+  const stored = typeof localStorage === 'undefined' ? null : localStorage.getItem(THEME_KEY)
+  if (THEMES.some((x) => x.id === stored)) return stored as ThemeId
+
+  const fromServer = rendered().theme
+  if (THEMES.some((x) => x.id === fromServer)) return fromServer as ThemeId
+
+  return DEFAULT_THEME
 }
 
 export function getMode(): Mode {
-  if (typeof localStorage === 'undefined') return DEFAULT_MODE
-  const m = localStorage.getItem(MODE_KEY)
-  return m === 'light' || m === 'dark' ? m : DEFAULT_MODE
+  const stored = typeof localStorage === 'undefined' ? null : localStorage.getItem(MODE_KEY)
+  if (stored === 'light' || stored === 'dark') return stored
+
+  // Only trust the rendered class when the server actually rendered a theme —
+  // otherwise "no dark class" is indistinguishable from "no server render".
+  if (rendered().theme) return rendered().dark ? 'dark' : 'light'
+
+  return DEFAULT_MODE
 }
 
 /** Does this theme ship a dark variant? */

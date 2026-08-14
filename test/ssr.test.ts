@@ -55,3 +55,36 @@ describe('light-only themes', () => {
     expect(modeFor(theme, mode)).toBe('light')
   })
 })
+
+// The bug this prevents: an SSR app stamps data-theme="prose" on the server,
+// then ThemeSwitcher mounts, getTheme() finds an empty localStorage, returns the
+// package default, and applyTheme overwrites the correct render with graphite.
+// The SSR path exists to remove that flash; the client half must not put it back.
+describe('client defers to the server render', () => {
+  const html = () => (globalThis as any).document.documentElement
+
+  it('adopts the rendered theme when the visitor has no stored choice', async () => {
+    const { getTheme, getMode } = await import('../src/theme.js')
+    html().setAttribute('data-theme', 'prose')
+    html().classList.remove('dark')
+    expect(getTheme()).toBe('prose')
+    expect(getMode()).toBe('light')
+  })
+
+  it('still prefers a stored choice over the render', async () => {
+    const { getTheme } = await import('../src/theme.js')
+    // This jsdom build exposes document but not localStorage, and the assertion
+    // is about PRECEDENCE, not about jsdom — so stub the one API involved.
+    const store: Record<string, string> = { 'pica:theme': 'void' }
+    ;(globalThis as any).localStorage = { getItem: (k: string) => store[k] ?? null }
+    html().setAttribute('data-theme', 'prose')
+    expect(getTheme()).toBe('void')
+    delete (globalThis as any).localStorage
+  })
+
+  it('falls back to the default when nothing rendered a theme', async () => {
+    const { getTheme } = await import('../src/theme.js')
+    html().removeAttribute('data-theme')
+    expect(getTheme()).toBe('graphite')
+  })
+})
