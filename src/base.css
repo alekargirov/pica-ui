@@ -37,6 +37,12 @@
   --radius-sm: var(--radius-sm-t);
   --font-sans: var(--font-sans-t);
   --font-mono: var(--font-mono-t);
+  /* A display face is a THIRD type role, distinct from body and mono. Themes
+     that do not name one fall back to their sans, so this is free for the six
+     themes that predate it. */
+  --font-display: var(--font-display-t, var(--font-sans-t));
+  /* Hard offset shadow — ink, not blur. `none` by default; a theme opts in. */
+  --shadow-flat: var(--shadow-flat-t, none);
 }
 
 @layer base {
@@ -56,6 +62,48 @@
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
+}
+
+/* ============================================================================
+   CHARACTER TOKENS
+
+   A theme used to be able to say colour, radius and two font families. That is
+   enough to recolour an app and not enough to reskin one: "buttons are mono,
+   uppercase, tracked out, with a 2px rule" is character, and it lived hard-coded
+   inside the components. Any look that disagreed needed a component fork, which
+   defeats the point of a shared system.
+
+   These defaults reproduce the original appearance exactly, so the six themes
+   that predate them need no edit. A theme overrides them in its own
+   [data-theme] block: equal specificity, and themes are imported after base, so
+   the theme wins.
+   ============================================================================ */
+:root {
+  --btn-case-t: none;
+  --btn-tracking-t: normal;
+  --btn-weight-t: 600;
+  --btn-border-t: 0px;
+}
+
+@layer base {
+  /* Shape comes from the THEME, never from a literal in a component. Before
+     these existed every component hard-coded graphite's radii, so five of the
+     six themes silently rendered corners they had not asked for — void declared
+     0px and drew 10px. A component says what it IS; the theme says what that
+     looks like. */
+  .pica-btn {
+    border-radius: var(--radius-md-t);
+    text-transform: var(--btn-case-t);
+    letter-spacing: var(--btn-tracking-t);
+    font-weight: var(--btn-weight-t);
+    border-width: var(--btn-border-t);
+    border-style: solid;
+    border-color: currentColor;
+  }
+  .pica-card      { border-radius: var(--radius-lg-t); }
+  .pica-field     { border-radius: var(--radius-md-t); }
+  .pica-menu      { border-radius: var(--radius-lg-t); }
+  .pica-menu-item { border-radius: var(--radius-sm-t); }
 }
 
 /* Active nav left-bar indicator */
