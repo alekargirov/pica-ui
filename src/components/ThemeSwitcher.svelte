@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { Palette, Check, Sun, Moon, ChevronDown } from '@lucide/svelte'
-  import { THEMES, getTheme, getMode, applyTheme, type ThemeId, type Mode } from '../theme.js'
+  import { THEMES, getTheme, getMode, applyTheme, isLightOnly, type ThemeId, type Mode } from '../theme.js'
 
   interface Props {
     /** Render compact (icon only) — useful in tight sidebars. */
@@ -39,6 +39,9 @@
   }
 
   const currentLabel = $derived(THEMES.find((t) => t.id === theme)?.label ?? 'Theme')
+  // A light-only theme cannot honour dark mode, so the toggle is disabled
+  // rather than left looking functional and doing nothing.
+  const modeLocked = $derived(isLightOnly(theme))
 </script>
 
 <div class="relative {className}" bind:this={root}>
@@ -57,7 +60,9 @@
     <button
       type="button"
       onclick={toggleMode}
-      class="flex items-center justify-center h-[30px] w-[30px] pica-field text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+      disabled={modeLocked}
+      title={modeLocked ? 'This theme is light only' : undefined}
+      class="flex items-center justify-center h-[30px] w-[30px] pica-field text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
       aria-label={mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {#if mode === 'dark'}<Sun class="h-4 w-4" />{:else}<Moon class="h-4 w-4" />{/if}

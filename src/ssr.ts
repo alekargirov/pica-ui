@@ -13,6 +13,7 @@ import {
   DEFAULT_MODE,
   THEME_KEY,
   MODE_KEY,
+  modeFor,
   type ThemeId,
   type Mode,
 } from './theme.js'
@@ -44,7 +45,13 @@ export function themeFromCookie(
   }
 }
 
-/** The attributes to render onto <html> so the first paint is already correct. */
+/**
+ * The attributes to render onto <html> so the first paint is already correct.
+ *
+ * Goes through modeFor for the same reason the client does: a light-only theme
+ * must not be served with class="dark", or the server's first paint and the
+ * client's first repaint disagree.
+ */
 export function themeAttrs(theme: ThemeId, mode: Mode): { 'data-theme': string; class: string } {
-  return { 'data-theme': theme, class: mode === 'dark' ? 'dark' : '' }
+  return { 'data-theme': theme, class: modeFor(theme, mode) === 'dark' ? 'dark' : '' }
 }

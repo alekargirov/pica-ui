@@ -13,7 +13,9 @@
     ['forge', 'Forge', '22 96% 58%'],
     ['petal', 'Petal', '340 62% 66%'],
     ['void', 'Void', '265 100% 68%'],
-    ['prose', 'Prose', '6 88% 45%'],
+    // 4th element: lightOnly — the theme ships no .dark block, so dark mode is
+    // not a preference it can meet. Keep in step with theme.ts's THEMES.
+    ['prose', 'Prose', '6 88% 45%', true],
   ]
   var TKEY = 'pica:theme', MKEY = 'pica:mode'
   function getTheme() {
@@ -24,10 +26,14 @@
     var m = localStorage.getItem(MKEY)
     return m === 'light' || m === 'dark' ? m : 'dark'
   }
+  function lightOnly(theme) {
+    var t = THEMES.filter(function (x) { return x[0] === theme })[0]
+    return !!(t && t[3])
+  }
   function apply(theme, mode) {
     var el = document.documentElement
     el.setAttribute('data-theme', theme)
-    el.classList.toggle('dark', mode === 'dark')
+    el.classList.toggle('dark', mode === 'dark' && !lightOnly(theme))
     localStorage.setItem(TKEY, theme)
     localStorage.setItem(MKEY, mode)
   }
@@ -100,8 +106,17 @@
       'cursor:pointer;padding:6px 9px;border-radius:6px;font-size:13px;' +
       'background:hsl(var(--secondary));color:hsl(var(--foreground));' +
       'border:1px solid hsl(var(--border));'
-    modeBtn.textContent = mode === 'dark' ? '☀' : '☾'
-    modeBtn.onclick = function () { mode = mode === 'dark' ? 'light' : 'dark'; apply(theme, mode); build() }
+    // A dead control is worse than an absent one: on a light-only theme the
+    // toggle would look live and change nothing.
+    if (lightOnly(theme)) {
+      modeBtn.disabled = true
+      modeBtn.title = 'This theme is light only'
+      modeBtn.style.cssText += 'opacity:.4;cursor:not-allowed;'
+      modeBtn.textContent = '☾'
+    } else {
+      modeBtn.textContent = mode === 'dark' ? '☀' : '☾'
+      modeBtn.onclick = function () { mode = mode === 'dark' ? 'light' : 'dark'; apply(theme, mode); build() }
+    }
 
     host.appendChild(wrap); host.appendChild(modeBtn)
   }

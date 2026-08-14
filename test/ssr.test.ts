@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { themeFromCookie, themeAttrs } from '../src/ssr.js'
+import { modeFor, isLightOnly } from '../src/theme.js'
 
 describe('themeFromCookie', () => {
   it('reads theme and mode from a cookie header', () => {
@@ -32,7 +33,25 @@ describe('themeFromCookie', () => {
 
 describe('themeAttrs', () => {
   it('produces the html attributes', () => {
-    expect(themeAttrs('prose', 'light')).toEqual({ 'data-theme': 'prose', class: '' })
-    expect(themeAttrs('prose', 'dark')).toEqual({ 'data-theme': 'prose', class: 'dark' })
+    expect(themeAttrs('graphite', 'light')).toEqual({ 'data-theme': 'graphite', class: '' })
+    expect(themeAttrs('graphite', 'dark')).toEqual({ 'data-theme': 'graphite', class: 'dark' })
+  })
+})
+
+// A light-only theme has no .dark block. Serving it with class="dark" leaves a
+// light palette under dark-mode rules, and a mode toggle that does nothing.
+describe('light-only themes', () => {
+  it('never renders class="dark" for a theme with no dark variant', () => {
+    expect(themeAttrs('prose', 'dark')).toEqual({ 'data-theme': 'prose', class: '' })
+  })
+
+  it('still honours dark for themes that have a dark block', () => {
+    expect(themeAttrs('graphite', 'dark')).toEqual({ 'data-theme': 'graphite', class: 'dark' })
+  })
+
+  it('resolves the cookie the same way, so SSR and client agree', () => {
+    const { theme, mode } = themeFromCookie('pica:theme=prose; pica:mode=dark')
+    expect(theme).toBe('prose')
+    expect(modeFor(theme, mode)).toBe('light')
   })
 })
