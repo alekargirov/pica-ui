@@ -16,5 +16,8 @@ export type { ThemeId, Mode } from './theme.js'
 // Theme helpers
 export { THEMES, applyTheme, getTheme, getMode, THEME_KEY, MODE_KEY, DEFAULT_THEME, DEFAULT_MODE } from './theme.js'
 
+// Server-side half — for SSR apps that must resolve the theme before first paint
+export { themeFromCookie, themeAttrs } from './ssr.js'
+
 // Utilities
 export { cn } from './utils.js'

@@ -14,6 +14,7 @@
       "svelte": "./src/index.ts",
       "default": "./src/index.ts"
     },
+    "./ssr": "./src/ssr.ts",
     "./base": "./src/base.css",
     "./all": "./src/all.css",
     "./themes.bundle.css": "./src/themes.bundle.css",
