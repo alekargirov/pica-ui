@@ -71,6 +71,10 @@
   --border: 210 10% 84%;
   --input: 210 10% 84%;
   --ring: 22 92% 50%;
+  --success: 140 60% 30%;
+  --success-foreground: 0 0% 100%;
+  --warning: 35 92% 38%;
+  --warning-foreground: 0 0% 100%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 3px;
   --radius-md-t: 2px;
@@ -99,6 +103,10 @@
   --border: 214 12% 20%;
   --input: 214 14% 16%;
   --ring: 22 96% 58%;
+  --success: 142 62% 50%;
+  --success-foreground: 142 60% 7%;
+  --warning: 35 95% 60%;
+  --warning-foreground: 35 60% 8%;
 }
 
 /* pica-ui theme: graphite — scoped to [data-theme="graphite"] */
@@ -123,6 +131,10 @@
   --border: 218 13% 90%;
   --input: 218 13% 90%;
   --ring: 36 96% 40%;
+  --success: 152 56% 32%;
+  --success-foreground: 0 0% 100%;
+  --warning: 25 85% 40%;
+  --warning-foreground: 0 0% 100%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 10px;
   --radius-md-t: 6px;
@@ -151,6 +163,10 @@
   --border: 225 12% 16%;
   --input: 228 15% 12%;
   --ring: 43 96% 56%;
+  --success: 158 64% 52%;
+  --success-foreground: 158 60% 8%;
+  --warning: 27 96% 61%;
+  --warning-foreground: 27 60% 8%;
 }
 
 /* pica-ui theme: hearth — scoped to [data-theme="hearth"] */
@@ -175,6 +191,10 @@
   --border: 26 16% 88%;
   --input: 26 16% 88%;
   --ring: 17 68% 46%;
+  --success: 145 52% 32%;
+  --success-foreground: 0 0% 100%;
+  --warning: 32 88% 40%;
+  --warning-foreground: 0 0% 100%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 12px;
   --radius-md-t: 8px;
@@ -203,6 +223,10 @@
   --border: 20 12% 19%;
   --input: 20 14% 15%;
   --ring: 17 78% 62%;
+  --success: 148 58% 54%;
+  --success-foreground: 148 55% 8%;
+  --warning: 32 94% 62%;
+  --warning-foreground: 32 60% 8%;
 }
 
 /* pica-ui theme: petal — scoped to [data-theme="petal"] */
@@ -227,6 +251,10 @@
   --border: 340 18% 88%;
   --input: 340 18% 88%;
   --ring: 340 52% 48%;
+  --success: 158 48% 34%;
+  --success-foreground: 0 0% 100%;
+  --warning: 28 82% 44%;
+  --warning-foreground: 0 0% 100%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 20px;
   --radius-md-t: 14px;
@@ -255,6 +283,10 @@
   --border: 340 10% 20%;
   --input: 340 12% 15%;
   --ring: 340 62% 66%;
+  --success: 158 56% 56%;
+  --success-foreground: 158 55% 8%;
+  --warning: 28 92% 64%;
+  --warning-foreground: 28 60% 8%;
 }
 
 /* pica-ui theme: prose — scoped to [data-theme="prose"]
@@ -294,6 +326,10 @@
   --border: 40 12% 73%;
   --input: 40 12% 73%;
   --ring: 6 88% 45%;
+  --success: 152 45% 30%;
+  --success-foreground: 42 62% 96%;
+  --warning: 30 80% 34%;
+  --warning-foreground: 42 62% 96%;
 
   /* Shape — paper has corners. */
   --radius-lg-t: 0px;
@@ -350,6 +386,10 @@
   --border: 210 14% 88%;
   --input: 210 14% 88%;
   --ring: 192 88% 36%;
+  --success: 168 70% 28%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 90% 40%;
+  --warning-foreground: 0 0% 100%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 6px;
   --radius-md-t: 4px;
@@ -378,6 +418,10 @@
   --border: 218 16% 17%;
   --input: 220 18% 13%;
   --ring: 182 72% 48%;
+  --success: 166 72% 48%;
+  --success-foreground: 166 60% 7%;
+  --warning: 38 94% 58%;
+  --warning-foreground: 38 60% 8%;
 }
 
 /* pica-ui theme: void — scoped to [data-theme="void"] */
@@ -402,6 +446,10 @@
   --border: 270 10% 86%;
   --input: 270 10% 86%;
   --ring: 265 88% 46%;
+  --success: 150 60% 34%;
+  --success-foreground: 0 0% 100%;
+  --warning: 42 90% 42%;
+  --warning-foreground: 30 60% 8%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 0px;
   --radius-md-t: 0px;
@@ -430,4 +478,8 @@
   --border: 270 8% 14%;
   --input: 270 10% 10%;
   --ring: 265 100% 68%;
+  --success: 150 68% 54%;
+  --success-foreground: 150 60% 7%;
+  --warning: 42 96% 60%;
+  --warning-foreground: 42 60% 8%;
 }

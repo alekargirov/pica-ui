@@ -35,6 +35,10 @@
   --border: 40 12% 73%;
   --input: 40 12% 73%;
   --ring: 6 88% 45%;
+  --success: 152 45% 30%;
+  --success-foreground: 42 62% 96%;
+  --warning: 30 80% 34%;
+  --warning-foreground: 42 62% 96%;
 
   /* Shape — paper has corners. */
   --radius-lg-t: 0px;

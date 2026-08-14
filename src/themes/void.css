@@ -20,6 +20,10 @@
   --border: 270 10% 86%;
   --input: 270 10% 86%;
   --ring: 265 88% 46%;
+  --success: 150 60% 34%;
+  --success-foreground: 0 0% 100%;
+  --warning: 42 90% 42%;
+  --warning-foreground: 30 60% 8%;
   /* shape + type tokens (consumed by base.css @theme indirection) */
   --radius-lg-t: 0px;
   --radius-md-t: 0px;
@@ -48,4 +52,8 @@
   --border: 270 8% 14%;
   --input: 270 10% 10%;
   --ring: 265 100% 68%;
+  --success: 150 68% 54%;
+  --success-foreground: 150 60% 7%;
+  --warning: 42 96% 60%;
+  --warning-foreground: 42 60% 8%;
 }

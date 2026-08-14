@@ -30,6 +30,14 @@
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
+  /* Status. destructive already covered "this went wrong"; success and warning
+     were missing, so every app invented its own — scout on emerald/amber,
+     tickets on --ok/--warn in its own :root. Two apps inventing the same token
+     is the argument for the system owning it. */
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));

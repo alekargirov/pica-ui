@@ -14,6 +14,7 @@ const REQUIRED = [
   '--secondary', '--secondary-foreground', '--muted', '--muted-foreground',
   '--accent', '--accent-foreground', '--destructive', '--destructive-foreground',
   '--border', '--input', '--ring',
+  '--success', '--success-foreground', '--warning', '--warning-foreground',
   '--radius-lg-t', '--radius-md-t', '--radius-sm-t',
   '--font-sans-t', '--font-mono-t',
 ]
