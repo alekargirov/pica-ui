@@ -28,8 +28,12 @@
   --accent-foreground: 24 14% 7%;
   --destructive: 5 89% 34%;
   --destructive-foreground: 42 62% 96%;
-  --border: 25 12% 20%;
-  --input: 25 12% 20%;
+  /* notes' hairline is rgba(20,17,15,0.22) — a WASH of the ink, not the ink.
+     pica-ui's border token is an opaque triplet, so this is that wash already
+     blended over the paper. Using the full-strength ink here made every divider
+     read as a rule. */
+  --border: 40 12% 73%;
+  --input: 40 12% 73%;
   --ring: 6 88% 45%;
 
   /* Shape — paper has corners. */
@@ -46,11 +50,21 @@
   /* Ink, not blur. */
   --shadow-flat-t: 3px 3px 0 hsl(24 14% 7%);
 
-  /* Character — buttons and labels speak in the system voice, which here is the
-     mono face, not the reading serif. */
+  /* Character — lifted verbatim from notes-srv-v2's `.pp-btn` / `.pp-btn-blood`
+     rather than approximated. The numbers ARE the look: 11px mono at 0.08em in
+     a 2px box, a hard 3px print shadow on the primary, and a press that travels
+     exactly the shadow's offset so the button slides into it. */
   --btn-font-t: 'Space Mono', 'Courier New', monospace;
   --btn-case-t: uppercase;
   --btn-tracking-t: 0.08em;
   --btn-weight-t: 700;
+  --btn-size-t: 11px;
+  --btn-pad-t: 9px 13px;
   --btn-border-t: 2px;
+  --btn-border-color-t: hsl(24 14% 7%);
+  /* Hover inverts: ink ground, paper text. */
+  --btn-hover-bg-t: hsl(24 14% 7%);
+  --btn-hover-fg-t: hsl(41 44% 92%);
+  --btn-shadow-t: 3px 3px 0 hsl(6 88% 45%);
+  --btn-press-t: 3px;
 }

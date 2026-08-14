@@ -21,4 +21,20 @@
   /* Which type role speaks for controls. Most themes want the body face; a
      theme with a "system voice" (prose) points this at its mono. */
   --btn-font-t: var(--font-sans-t);
+
+  /* Metrics. A stamped mono label wants to be smaller and squarer than a
+     sentence-case sans one — size and padding are part of the look, not
+     incidental layout. */
+  --btn-size-t: 12.5px;
+  --btn-pad-t: 7px 12px;
+  --btn-border-color-t: hsl(var(--border));
+
+  /* Hover. Most themes tint; a brutalist one INVERTS — ink ground, paper text. */
+  --btn-hover-bg-t: hsl(var(--secondary));
+  --btn-hover-fg-t: hsl(var(--foreground));
+
+  /* The hard offset "print" shadow on a primary button, and the press that
+     slides the button into it. Both off by default. */
+  --btn-shadow-t: none;
+  --btn-press-t: 0px;
 }

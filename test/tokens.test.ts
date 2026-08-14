@@ -22,6 +22,8 @@ const REQUIRED = [
 // what keeps the widening additive for the six themes that predate it.
 const CHARACTER_DEFAULTS = [
   '--btn-case-t', '--btn-tracking-t', '--btn-weight-t', '--btn-border-t', '--btn-font-t',
+  '--btn-size-t', '--btn-pad-t', '--btn-border-color-t',
+  '--btn-hover-bg-t', '--btn-hover-fg-t', '--btn-shadow-t', '--btn-press-t',
 ]
 
 describe('token contract', () => {

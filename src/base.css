@@ -75,12 +75,26 @@
   .pica-btn {
     border-radius: var(--radius-md-t);
     font-family: var(--btn-font-t);
+    font-size: var(--btn-size-t);
     text-transform: var(--btn-case-t);
     letter-spacing: var(--btn-tracking-t);
     font-weight: var(--btn-weight-t);
+    padding: var(--btn-pad-t);
     border-width: var(--btn-border-t);
     border-style: solid;
-    border-color: currentColor;
+    border-color: var(--btn-border-color-t);
+  }
+  .pica-btn:hover:not(:disabled) {
+    background: var(--btn-hover-bg-t);
+    color: var(--btn-hover-fg-t);
+  }
+  /* The press slides the button into its own shadow — the offset and the
+     travel are the same distance, which is what makes it read as a physical
+     stamp rather than a fade. Both are 0/none unless a theme opts in. */
+  .pica-btn-primary { box-shadow: var(--btn-shadow-t); }
+  .pica-btn-primary:active:not(:disabled) {
+    transform: translate(var(--btn-press-t), var(--btn-press-t));
+    box-shadow: none;
   }
   .pica-card      { border-radius: var(--radius-lg-t); }
   .pica-field     { border-radius: var(--radius-md-t); }
