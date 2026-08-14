@@ -21,7 +21,7 @@ const REQUIRED = [
 // Optional in a theme, but base.css must default every one of them — that is
 // what keeps the widening additive for the six themes that predate it.
 const CHARACTER_DEFAULTS = [
-  '--btn-case-t', '--btn-tracking-t', '--btn-weight-t', '--btn-border-t',
+  '--btn-case-t', '--btn-tracking-t', '--btn-weight-t', '--btn-border-t', '--btn-font-t',
 ]
 
 describe('token contract', () => {

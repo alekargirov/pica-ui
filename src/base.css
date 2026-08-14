@@ -74,6 +74,7 @@
      looks like. */
   .pica-btn {
     border-radius: var(--radius-md-t);
+    font-family: var(--btn-font-t);
     text-transform: var(--btn-case-t);
     letter-spacing: var(--btn-tracking-t);
     font-weight: var(--btn-weight-t);

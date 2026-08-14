@@ -46,7 +46,9 @@
   /* Ink, not blur. */
   --shadow-flat-t: 3px 3px 0 hsl(24 14% 7%);
 
-  /* Character — buttons and labels speak in the system voice. */
+  /* Character — buttons and labels speak in the system voice, which here is the
+     mono face, not the reading serif. */
+  --btn-font-t: 'Space Mono', 'Courier New', monospace;
   --btn-case-t: uppercase;
   --btn-tracking-t: 0.08em;
   --btn-weight-t: 700;

@@ -28,6 +28,9 @@
   --btn-tracking-t: normal;
   --btn-weight-t: 600;
   --btn-border-t: 0px;
+  /* Which type role speaks for controls. Most themes want the body face; a
+     theme with a "system voice" (prose) points this at its mono. */
+  --btn-font-t: var(--font-sans-t);
 }
 
 /* pica-ui theme: forge — scoped to [data-theme="forge"] */
@@ -286,7 +289,9 @@
   /* Ink, not blur. */
   --shadow-flat-t: 3px 3px 0 hsl(24 14% 7%);
 
-  /* Character — buttons and labels speak in the system voice. */
+  /* Character — buttons and labels speak in the system voice, which here is the
+     mono face, not the reading serif. */
+  --btn-font-t: 'Space Mono', 'Courier New', monospace;
   --btn-case-t: uppercase;
   --btn-tracking-t: 0.08em;
   --btn-weight-t: 700;
