@@ -46,7 +46,7 @@
     <button
       type="button"
       onclick={() => (open = !open)}
-      class="flex items-center gap-2 rounded-[6px] px-2.5 py-1.5 text-[13px] font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+      class="flex items-center gap-2 pica-field px-2.5 py-1.5 text-[13px] font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
       aria-haspopup="listbox"
       aria-expanded={open}
     >
@@ -57,7 +57,7 @@
     <button
       type="button"
       onclick={toggleMode}
-      class="flex items-center justify-center h-[30px] w-[30px] rounded-[6px] text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+      class="flex items-center justify-center h-[30px] w-[30px] pica-field text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
       aria-label={mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {#if mode === 'dark'}<Sun class="h-4 w-4" />{:else}<Moon class="h-4 w-4" />{/if}
@@ -66,7 +66,7 @@
 
   {#if open}
     <ul
-      class="absolute z-50 left-0 min-w-[160px] rounded-[8px] border border-border bg-popover p-1 shadow-lg {placement === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'}"
+      class="absolute z-50 left-0 min-w-[160px] pica-menu border border-border bg-popover p-1 shadow-lg {placement === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'}"
       role="listbox"
     >
       {#each THEMES as t (t.id)}
@@ -74,7 +74,7 @@
           <button
             type="button"
             onclick={() => pickTheme(t.id)}
-            class="w-full flex items-center justify-between gap-2 rounded-[4px] px-2.5 py-1.5 text-[13px] text-left transition-colors
+            class="w-full flex items-center justify-between gap-2 pica-menu-item px-2.5 py-1.5 text-[13px] text-left transition-colors
                    {theme === t.id ? 'bg-secondary text-foreground font-medium' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
             role="option"
             aria-selected={theme === t.id}

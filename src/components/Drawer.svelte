@@ -28,7 +28,7 @@
       <div class="text-[13px] font-medium">{title ?? ''}</div>
       <button
         onclick={onclose}
-        class="text-muted-foreground hover:text-foreground h-[34px] w-[34px] flex items-center justify-center rounded-[6px] hover:bg-secondary transition-colors"
+        class="text-muted-foreground hover:text-foreground h-[34px] w-[34px] pica-field flex items-center justify-center hover:bg-secondary transition-colors"
         aria-label="Close"
       >✕</button>
     </div>

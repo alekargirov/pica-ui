@@ -28,7 +28,7 @@
     icon: 'h-[34px] w-[34px]',
   }
   let classes = $derived(cn(
-    'inline-flex items-center justify-center rounded-[6px] font-semibold transition-[background-color,filter,transform] duration-150 disabled:pointer-events-none disabled:opacity-50',
+    'pica-btn inline-flex items-center justify-center transition-[background-color,filter,transform] duration-150 disabled:pointer-events-none disabled:opacity-50',
     variants[variant], sizes[size], className,
   ))
 </script>
