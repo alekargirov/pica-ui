@@ -35,11 +35,16 @@ describe('token contract', () => {
     }
   })
 
-  it('base.css gives every character token a default', () => {
-    const base = readFileSync(join(SRC, 'base.css'), 'utf8')
+  it('defaults.css gives every character token a default', () => {
+    const defaults = readFileSync(join(SRC, 'defaults.css'), 'utf8')
     for (const token of CHARACTER_DEFAULTS) {
-      expect(base, `base.css is missing a default for ${token}`).toContain(`${token}:`)
+      expect(defaults, `defaults.css is missing a default for ${token}`).toContain(`${token}:`)
     }
+  })
+
+  it('base.css pulls those defaults in, so the Tailwind path gets them too', () => {
+    const base = readFileSync(join(SRC, 'base.css'), 'utf8')
+    expect(base).toContain("@import './defaults.css'")
   })
 
   it('exposes display font and flat shadow through the theme layer', () => {
@@ -52,6 +57,18 @@ describe('token contract', () => {
     const base = readFileSync(join(SRC, 'base.css'), 'utf8')
     for (const cls of ['.pica-btn', '.pica-card', '.pica-field', '.pica-menu', '.pica-menu-item']) {
       expect(base, `base.css is missing ${cls}`).toContain(cls)
+    }
+  })
+})
+
+// The plain-CSS path never loads base.css, so the bundle has to carry the
+// defaults itself or `var(--btn-case-t)` resolves to nothing on every theme
+// that does not set it — which is every theme except prose.
+describe('themes.bundle.css is self-sufficient', () => {
+  it('carries the character defaults for non-Tailwind apps', () => {
+    const bundle = readFileSync(join(SRC, 'themes.bundle.css'), 'utf8')
+    for (const token of CHARACTER_DEFAULTS) {
+      expect(bundle, `bundle is missing a default for ${token}`).toContain(`${token}: `)
     }
   })
 })

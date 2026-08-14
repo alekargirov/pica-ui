@@ -24,12 +24,18 @@ export function renderBundle() {
     '\n' +
     "@import './fonts/fonts.css';\n"
 
+  // Inlined, not imported: this file is often read off disk and injected into a
+  // <style> tag, where a relative @import would resolve against the page. The
+  // defaults must survive that, or every theme that does not set a character
+  // token resolves it to nothing.
+  const defaults = readFileSync(join(SRC, 'defaults.css'), 'utf8').trim()
+
   const themes = readdirSync(join(SRC, 'themes'))
     .filter((f) => f.endsWith('.css'))
     .sort()
     .map((f) => readFileSync(join(SRC, 'themes', f), 'utf8').trim())
 
-  return header + '\n' + themes.join('\n\n') + '\n'
+  return header + '\n' + defaults + '\n\n' + themes.join('\n\n') + '\n'
 }
 
 if (process.argv[1]?.endsWith('build-bundle.mjs')) {

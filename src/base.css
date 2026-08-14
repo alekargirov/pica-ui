@@ -10,6 +10,8 @@
 
 /* All theme fonts (whichever theme is active picks its family) */
 @import './fonts/fonts.css';
+/* Character token defaults — shared with themes.bundle.css, see defaults.css */
+@import './defaults.css';
 
 @theme inline {
   --color-background: hsl(var(--background));
@@ -62,27 +64,6 @@
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
-}
-
-/* ============================================================================
-   CHARACTER TOKENS
-
-   A theme used to be able to say colour, radius and two font families. That is
-   enough to recolour an app and not enough to reskin one: "buttons are mono,
-   uppercase, tracked out, with a 2px rule" is character, and it lived hard-coded
-   inside the components. Any look that disagreed needed a component fork, which
-   defeats the point of a shared system.
-
-   These defaults reproduce the original appearance exactly, so the six themes
-   that predate them need no edit. A theme overrides them in its own
-   [data-theme] block: equal specificity, and themes are imported after base, so
-   the theme wins.
-   ============================================================================ */
-:root {
-  --btn-case-t: none;
-  --btn-tracking-t: normal;
-  --btn-weight-t: 600;
-  --btn-border-t: 0px;
 }
 
 @layer base {

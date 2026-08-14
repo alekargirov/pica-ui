@@ -8,6 +8,28 @@
 
 @import './fonts/fonts.css';
 
+/* pica-ui — character token defaults.
+   ONE source, two consumers: base.css imports it for the Tailwind path, and
+   scripts/build-bundle.mjs inlines it into themes.bundle.css for the plain-CSS
+   path. A non-Tailwind app that never loads base.css still needs these, or
+   `var(--btn-case-t)` resolves to nothing on every theme that does not set it.
+
+   A theme used to be able to say colour, radius and two font families. That is
+   enough to recolour an app and not enough to reskin one: "buttons are mono,
+   uppercase, tracked out, with a 2px rule" is character, and it lived hard-coded
+   inside the components. Any look that disagreed needed a component fork, which
+   defeats the point of a shared system.
+
+   These values reproduce the original appearance exactly, so the six themes that
+   predate them need no edit. A theme overrides them in its own [data-theme]
+   block: equal specificity, and themes come after this file, so the theme wins. */
+:root {
+  --btn-case-t: none;
+  --btn-tracking-t: normal;
+  --btn-weight-t: 600;
+  --btn-border-t: 0px;
+}
+
 /* pica-ui theme: forge — scoped to [data-theme="forge"] */
 
 [data-theme="forge"] {

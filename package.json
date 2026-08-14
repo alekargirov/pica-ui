@@ -1,6 +1,6 @@
 {
   "name": "pica-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "pica design system \u2014 themes, tokens and components for pica apps",
   "type": "module",
   "scripts": {
@@ -19,7 +19,8 @@
     "./all": "./src/all.css",
     "./themes.bundle.css": "./src/themes.bundle.css",
     "./switcher.js": "./src/switcher.js",
-    "./themes/*": "./src/themes/*.css"
+    "./themes/*": "./src/themes/*.css",
+    "./defaults": "./src/defaults.css"
   },
   "peerDependencies": {
     "svelte": "^5.0.0",
