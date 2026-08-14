@@ -13,6 +13,7 @@
     ['forge', 'Forge', '22 96% 58%'],
     ['petal', 'Petal', '340 62% 66%'],
     ['void', 'Void', '265 100% 68%'],
+    ['prose', 'Prose', '6 88% 45%'],
   ]
   var TKEY = 'pica:theme', MKEY = 'pica:mode'
   function getTheme() {

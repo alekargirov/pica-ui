@@ -99,4 +99,6 @@
   [data-swatch='forge']    { background: hsl(22 96% 58%); }
   [data-swatch='petal']    { background: hsl(340 62% 66%); }
   [data-swatch='void']     { background: hsl(265 100% 68%); }
+  /* prose is light-only, so its swatch is the light palette's vermillion */
+  [data-swatch='prose']    { background: hsl(6 88% 45%); }
 </style>

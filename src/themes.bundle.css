@@ -216,6 +216,61 @@
   --ring: 340 62% 66%;
 }
 
+/* pica-ui theme: prose — scoped to [data-theme="prose"]
+   Literary brutalism, ported from notes-srv-v2's "paper" palette: warm bone
+   stock, near-black warm ink, one shock of vermillion, square corners and a
+   system voice that is mono, uppercase and tracked out.
+
+   LIGHT ONLY. notes' dark counterpart ("carbon") is deliberately not included
+   yet, so this theme has no .dark block — an app on prose should default to
+   light mode, because toggling to dark here changes nothing. */
+
+[data-theme="prose"] {
+  /* Per-theme on purpose: this is what makes the native <select> popup, the
+     scrollbars and the focus rings follow the theme rather than the OS. */
+  color-scheme: light;
+
+  --background: 41 44% 92%;
+  --foreground: 24 14% 7%;
+  --card: 42 62% 96%;
+  --card-foreground: 24 14% 7%;
+  --popover: 42 62% 96%;
+  --popover-foreground: 24 14% 7%;
+  --primary: 6 88% 45%;
+  --primary-foreground: 42 62% 96%;
+  --secondary: 41 38% 87%;
+  --secondary-foreground: 24 14% 7%;
+  --muted: 41 38% 87%;
+  --muted-foreground: 30 10% 45%;
+  --accent: 41 38% 87%;
+  --accent-foreground: 24 14% 7%;
+  --destructive: 5 89% 34%;
+  --destructive-foreground: 42 62% 96%;
+  --border: 25 12% 20%;
+  --input: 25 12% 20%;
+  --ring: 6 88% 45%;
+
+  /* Shape — paper has corners. */
+  --radius-lg-t: 0px;
+  --radius-md-t: 0px;
+  --radius-sm-t: 2px;
+
+  /* Type — three roles: a Didone for display, a serif for reading, mono as the
+     system voice. */
+  --font-display-t: 'Bodoni Moda', 'Times New Roman', serif;
+  --font-sans-t: 'Spectral', Georgia, serif;
+  --font-mono-t: 'Space Mono', 'Courier New', monospace;
+
+  /* Ink, not blur. */
+  --shadow-flat-t: 3px 3px 0 hsl(24 14% 7%);
+
+  /* Character — buttons and labels speak in the system voice. */
+  --btn-case-t: uppercase;
+  --btn-tracking-t: 0.08em;
+  --btn-weight-t: 700;
+  --btn-border-t: 2px;
+}
+
 /* pica-ui theme: signal — scoped to [data-theme="signal"] */
 
 [data-theme="signal"] {
