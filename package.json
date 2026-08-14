@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "pica design system — components and themes for pica apps",
   "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
   "svelte": "./src/index.ts",
   "exports": {
     ".": {
@@ -23,5 +26,8 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0"
   }
 }
