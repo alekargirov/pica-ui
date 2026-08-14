@@ -1,10 +1,12 @@
 {
   "name": "pica-ui",
   "version": "0.1.0",
-  "description": "pica design system — components and themes for pica apps",
+  "description": "pica design system \u2014 components and themes for pica apps",
   "type": "module",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "build:bundle": "node scripts/build-bundle.mjs",
+    "build:fonts": "node scripts/build-fonts.mjs"
   },
   "svelte": "./src/index.ts",
   "exports": {
